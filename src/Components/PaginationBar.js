@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 const NEIGHBOURS = 2;
@@ -115,12 +116,12 @@ class PaginationBar extends Component {
                         pageNo = page;
                     }
                     return (
-                        <a key={index} 
-                            className={`button ${this.props.currentPage === page ? 'active' : ''}`} 
-                            href={this.props.url+pageNo}
-                            >
+                        <Link 
+                            to={this.props.url+pageNo} 
+                            key={index} 
+                            className={`button ${this.props.currentPage === page ? 'active' : ''}`} >
                             {page}
-                        </a>
+                        </Link>
                     );
                 })
             }

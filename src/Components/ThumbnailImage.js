@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { Link } from 'react-router-dom'
 import Image from 'react-graceful-image';
 import PropTypes from 'prop-types';
 
@@ -18,7 +19,7 @@ class ThumbnailImage extends Component {
     render() {
         
         return (
-            <a href={"/view/"+this.props.id} onMouseEnter={this.mouseOverEvent} onMouseLeave={this.mouseOverEvent}>
+            <Link to={"/view/"+this.props.id} onMouseEnter={this.mouseOverEvent} onMouseLeave={this.mouseOverEvent}>
                 <Image className="thumbnail" 
                     src={this.props.url} 
                     width='150' height='150' 
@@ -30,7 +31,7 @@ class ThumbnailImage extends Component {
                         {this.props.title}
                     </div>
                                                    
-            </a>
+            </Link>
         );
 
   }
