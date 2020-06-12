@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/futubrowser/static/css/main.877aea6c.chunk.css",
+    "main.js": "/futubrowser/static/js/main.01e44446.chunk.js",
+    "main.js.map": "/futubrowser/static/js/main.01e44446.chunk.js.map",
+    "runtime-main.js": "/futubrowser/static/js/runtime-main.ec2fd7db.js",
+    "runtime-main.js.map": "/futubrowser/static/js/runtime-main.ec2fd7db.js.map",
+    "static/js/2.7ffe1d09.chunk.js": "/futubrowser/static/js/2.7ffe1d09.chunk.js",
+    "static/js/2.7ffe1d09.chunk.js.map": "/futubrowser/static/js/2.7ffe1d09.chunk.js.map",
+    "index.html": "/futubrowser/index.html",
+    "precache-manifest.860c4491588238e09ad8c916923fa5c3.js": "/futubrowser/precache-manifest.860c4491588238e09ad8c916923fa5c3.js",
+    "service-worker.js": "/futubrowser/service-worker.js",
+    "static/css/main.877aea6c.chunk.css.map": "/futubrowser/static/css/main.877aea6c.chunk.css.map",
+    "static/js/2.7ffe1d09.chunk.js.LICENSE.txt": "/futubrowser/static/js/2.7ffe1d09.chunk.js.LICENSE.txt",
+    "static/media/Styles.scss": "/futubrowser/static/media/loader.fda1130c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec2fd7db.js",
+    "static/js/2.7ffe1d09.chunk.js",
+    "static/css/main.877aea6c.chunk.css",
+    "static/js/main.01e44446.chunk.js"
+  ]
+}
