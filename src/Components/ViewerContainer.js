@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import LoadingOverlay from './LoadingOverlay'
 import FailureOverlay from './FailureOverlay'
-import Image from 'react-graceful-image';
+import Image from 'react-graceful-image'
+import BackButton from './BackButton'
 
-export default function ViewerContainer(props) {
+function ViewerContainer(props) {
     const state = {
         loading: true
     }
@@ -13,7 +14,7 @@ export default function ViewerContainer(props) {
         image: undefined
     }
 
-    const [image, setImage] = useState(data)
+    const [image, setImage] = useState(data);
     const [loading, setLoadingState] = useState(state);
 
     useEffect(() => {
@@ -66,6 +67,7 @@ export default function ViewerContainer(props) {
                             <div className="descriptionRow"><div className="descriptionKey">Image ID</div><div className="descriptionValue"> {image.id}</div></div>
                             <div className="descriptionRow"><div className="descriptionKey">Title</div><div className="descriptionValue"> {image.title}</div></div>
                             <div className="descriptionRow"><div className="descriptionKey">Album ID</div><div className="descriptionValue"> {image.albumId}</div></div>             
+                            <BackButton/>
                         </div>
                     </div>
                     ) : (
@@ -77,3 +79,5 @@ export default function ViewerContainer(props) {
     )
     
 }
+
+export default ViewerContainer

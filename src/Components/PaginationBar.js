@@ -16,7 +16,7 @@ class PaginationBar extends Component {
         super(props);
         this.changePage = this.changePage.bind(this);
         this.generateButtonArray = this.generateButtonArray.bind(this);
-      }
+    }
     
     changePage (page)  {
         this.props.changePage({currentPage: page});
