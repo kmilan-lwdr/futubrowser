@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "33fefea6cf950fd3fbfbcae9cb639675",
+    "revision": "84244a49c531c0c59498d49769c9709e",
     "url": "/futubrowser/index.html"
   },
   {
-    "revision": "a8f29c64983b9cf872f8",
-    "url": "/futubrowser/static/css/main.9adf5496.chunk.css"
+    "revision": "99303428db8b3f69f3ac",
+    "url": "/futubrowser/static/css/main.505d6693.chunk.css"
   },
   {
-    "revision": "91d3623d9caab7d899d3",
-    "url": "/futubrowser/static/js/2.eeea7c6b.chunk.js"
+    "revision": "35000500ce241feb1a81",
+    "url": "/futubrowser/static/js/2.980a9d5e.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/futubrowser/static/js/2.eeea7c6b.chunk.js.LICENSE.txt"
+    "url": "/futubrowser/static/js/2.980a9d5e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a8f29c64983b9cf872f8",
-    "url": "/futubrowser/static/js/main.18af9cd6.chunk.js"
+    "revision": "99303428db8b3f69f3ac",
+    "url": "/futubrowser/static/js/main.4e599b3e.chunk.js"
   },
   {
     "revision": "e063d865abb92936e527",
