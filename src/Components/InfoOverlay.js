@@ -1,13 +1,13 @@
 import React, { Component} from 'react';
 
-class LoadingOverlay extends Component {
+class InfoOverlay extends Component {
     render() {
         
         return (
             <div className="overlay">
                 <div className="text">
-                    Please wait...
-                    <div className="loadingSpinner"/>
+                    {this.props.text}
+                    <div className={this.props.iconClass}/>
                 </div>                              
             </div>
         );
@@ -15,5 +15,4 @@ class LoadingOverlay extends Component {
   }
 }
 
-
-export default LoadingOverlay;
+export default InfoOverlay;

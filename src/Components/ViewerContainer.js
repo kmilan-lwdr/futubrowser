@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import LoadingOverlay from './LoadingOverlay'
-import FailureOverlay from './FailureOverlay'
+import InfoOverlay from './InfoOverlay'
 import Image from 'react-graceful-image'
 import BackButton from './BackButton'
 
@@ -46,12 +45,11 @@ function ViewerContainer(props) {
         getImageData();
     }, [props.match.params.id]) 
 
-    // Return a table with some data from the API.
     return (
         <div className="container">
             {
                 loading ? (
-                    <LoadingOverlay/>
+                    <InfoOverlay text="Please wait..." iconClass="loadingSpinner"/>
                 ) : (
                     image.id ?  (
                     <div className="row">
@@ -71,13 +69,12 @@ function ViewerContainer(props) {
                         </div>
                     </div>
                     ) : (
-                        <FailureOverlay/>
+                        <InfoOverlay text="Unable to fetch data" iconClass="failureIcon"/>
                     )
                 )
             }
         </div>
-    )
-    
+    )   
 }
 
 export default ViewerContainer

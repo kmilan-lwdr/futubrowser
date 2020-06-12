@@ -5,9 +5,26 @@
 @import 'PaginationBar';
 @import 'Overlay';
 
+@mixin center($horizontal: true, $vertical: true) {
+    position: absolute;
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  
+    } @else if ($horizontal) {
+      left: 50%;
+      transform: translate(-50%, 0);
+  
+    } @else if ($vertical) {
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+}
+
 body {
     margin: 0;
-    background-image: url('./bg.svg');
+    background-image: url('./images/bg.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

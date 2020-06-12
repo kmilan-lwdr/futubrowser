@@ -9,8 +9,6 @@ const NEXT = '>';
 const END = '>|';
 const BREAK = '...';
 
-
-
 class PaginationBar extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +38,7 @@ class PaginationBar extends Component {
         let buttons = [];
         
         // If current page is not the first, add "start" and "previous" buttons before the numbered buttons
-        if (this.props.currentPage > 0 ){
+        if (this.props.currentPage > 1 ){
             buttons.push(START);
             buttons.push(PREVIOUS);
         }
@@ -132,7 +130,6 @@ class PaginationBar extends Component {
 
   }
 }
-
 
 PaginationBar.propTypes = {
     currentPage: PropTypes.number,

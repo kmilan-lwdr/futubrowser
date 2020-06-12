@@ -25,8 +25,7 @@ class ThumbnailImage extends Component {
                     width='150' height='150' 
                     alt={this.props.alt}
                     placeholderColor='#393d3a'/>
-                
-                    
+                                  
                     <div className="titleCard" style={{display: this.state.showTitleCard ? 'block' : 'none'}}>
                         {this.props.title}
                     </div>
@@ -38,11 +37,8 @@ class ThumbnailImage extends Component {
 }
 
 ThumbnailImage.propTypes = {
-    //id: PropTypes.string,
-    //alt: PropTypes.string,
     url: PropTypes.string,
     title: PropTypes.string,
-    //key: PropTypes.string
 };
 
 export default ThumbnailImage;

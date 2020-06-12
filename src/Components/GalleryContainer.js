@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import PaginationBar from './PaginationBar'
-import LoadingOverlay from './LoadingOverlay'
-import FailureOverlay from './FailureOverlay'
+import InfoOverlay from './InfoOverlay'
 import ThumbnailImage from './ThumbnailImage'
 import axios from 'axios'
 
+// Should add option to UI
 const LIMIT = 40;
 
 export default function GalleryContainer(props) {
@@ -69,7 +69,7 @@ export default function GalleryContainer(props) {
         <div className="container">
             {
                 loading ? (
-                    <LoadingOverlay/>
+                    <InfoOverlay text="Please wait..." iconClass="loadingSpinner"/>
                 ) : (
                     thumbnailData.thumbnails.length > 0 ? (
                         <div>
@@ -94,7 +94,7 @@ export default function GalleryContainer(props) {
                             
                         </div>
                     ) : (
-                        <FailureOverlay/>
+                        <InfoOverlay text="Unable to fetch data" iconClass="failureIcon"/>
                     )
                 )
             }
