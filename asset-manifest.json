@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/futubrowser/static/css/main.877aea6c.chunk.css",
-    "main.js": "/futubrowser/static/js/main.18e2bf0b.chunk.js",
-    "main.js.map": "/futubrowser/static/js/main.18e2bf0b.chunk.js.map",
+    "main.js": "/futubrowser/static/js/main.111e41f9.chunk.js",
+    "main.js.map": "/futubrowser/static/js/main.111e41f9.chunk.js.map",
     "runtime-main.js": "/futubrowser/static/js/runtime-main.ec2fd7db.js",
     "runtime-main.js.map": "/futubrowser/static/js/runtime-main.ec2fd7db.js.map",
-    "static/js/2.7ffe1d09.chunk.js": "/futubrowser/static/js/2.7ffe1d09.chunk.js",
-    "static/js/2.7ffe1d09.chunk.js.map": "/futubrowser/static/js/2.7ffe1d09.chunk.js.map",
+    "static/js/2.3a35a4e3.chunk.js": "/futubrowser/static/js/2.3a35a4e3.chunk.js",
+    "static/js/2.3a35a4e3.chunk.js.map": "/futubrowser/static/js/2.3a35a4e3.chunk.js.map",
     "index.html": "/futubrowser/index.html",
-    "precache-manifest.60e990d06b6d3e81e04481771edce897.js": "/futubrowser/precache-manifest.60e990d06b6d3e81e04481771edce897.js",
+    "precache-manifest.3e5cd5f5292ad89ce5198c11a8182e3e.js": "/futubrowser/precache-manifest.3e5cd5f5292ad89ce5198c11a8182e3e.js",
     "service-worker.js": "/futubrowser/service-worker.js",
     "static/css/main.877aea6c.chunk.css.map": "/futubrowser/static/css/main.877aea6c.chunk.css.map",
-    "static/js/2.7ffe1d09.chunk.js.LICENSE.txt": "/futubrowser/static/js/2.7ffe1d09.chunk.js.LICENSE.txt",
+    "static/js/2.3a35a4e3.chunk.js.LICENSE.txt": "/futubrowser/static/js/2.3a35a4e3.chunk.js.LICENSE.txt",
     "static/media/Styles.scss": "/futubrowser/static/media/loader.fda1130c.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ec2fd7db.js",
-    "static/js/2.7ffe1d09.chunk.js",
+    "static/js/2.3a35a4e3.chunk.js",
     "static/css/main.877aea6c.chunk.css",
-    "static/js/main.18e2bf0b.chunk.js"
+    "static/js/main.111e41f9.chunk.js"
   ]
 }
