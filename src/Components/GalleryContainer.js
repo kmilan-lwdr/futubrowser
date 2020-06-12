@@ -5,7 +5,7 @@ import FailureOverlay from './FailureOverlay'
 import ThumbnailImage from './ThumbnailImage'
 import axios from 'axios'
 
-const LIMIT = 30;
+const LIMIT = 40;
 
 export default function GalleryContainer(props) {
     // Setting initial state

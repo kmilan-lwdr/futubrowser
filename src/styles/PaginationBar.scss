@@ -1,7 +1,7 @@
 .paginationBar {
     //@include center(true, false);
     //background-color: $bgContentColor;
-
+    
 }
 
 .button {
@@ -16,6 +16,9 @@
     border-bottom: 1px solid $dirt;
     border-left: 1px solid $bgContentColor;
     border-top: 1px solid $bgContentColor;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
     text-decoration: none;
 
     &:hover {
@@ -38,5 +41,8 @@
     padding: 0.4vmin 1.2vmin;
     font-size: 1.2rem;
     color: $darkCyan;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
