@@ -6,7 +6,7 @@ import ViewerContainer from './Components/ViewerContainer';
 export default function App() {
   return (
     <div className="App">
-      <HashRouter basename="/futubrowser">
+      <HashRouter basename="/">
         <Link to='/' className="AppHeader">
           futuBrowser
         </Link>
