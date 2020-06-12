@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2a9f7a1e6d4dacfeeca92b11061cfd83",
+    "revision": "c4701a316df08949af9f0234e5a8e0f0",
     "url": "/futubrowser/index.html"
   },
   {
-    "revision": "69606b43446553ee3877",
+    "revision": "4e9e40dbe5430211d836",
     "url": "/futubrowser/static/css/main.9adf5496.chunk.css"
   },
   {
-    "revision": "8cc943a1ecbfa09bd246",
-    "url": "/futubrowser/static/js/2.3a35a4e3.chunk.js"
+    "revision": "91d3623d9caab7d899d3",
+    "url": "/futubrowser/static/js/2.eeea7c6b.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/futubrowser/static/js/2.3a35a4e3.chunk.js.LICENSE.txt"
+    "url": "/futubrowser/static/js/2.eeea7c6b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "69606b43446553ee3877",
-    "url": "/futubrowser/static/js/main.70a02110.chunk.js"
+    "revision": "4e9e40dbe5430211d836",
+    "url": "/futubrowser/static/js/main.31c76004.chunk.js"
   },
   {
     "revision": "e063d865abb92936e527",
