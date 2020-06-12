@@ -1,0 +1,63 @@
+$lightGray: #ddd;
+$offWhite: #eee;
+
+$dark: #272727;
+$gray: #747474;
+$boldOrange: #FF652F;
+
+$storm: #222c3c;
+$stormMed: rgba($storm, 0.8);
+$stormPale: rgba($storm, 0.6);
+
+$jean: #999ea7; 
+$jeanMed: rgba($jean, 0.8);
+$jeanPale: rgba($jean, 0.6);
+
+$honey: #d8b26e; 
+$honeyMed: rgba($honey, 0.8);
+$honeyPale: rgba($honey, 0.6);
+
+$nude: #b69b7d; 
+$nudeMed: rgba($nude, 0.8);
+$nudePale: rgba($nude, 0.6);
+
+$cream: #e2e0d5;
+$creamMed: rgba($cream, 0.8);
+$creamPale: rgba($cream, 0.6);
+
+$jet: #131113;
+$dirt: #1b1719;
+$ash: #393d3a; 
+$grass: #3f5843; 
+$darkCyan: #009f77;
+$midnightBlue: #190c4f;
+$tan: #b69b7d;
+$tanDark: #8f7961;
+$tanLight: #ceb395;
+
+$cloud: #d4d6d5;
+
+$bgColor: $dirt;
+$bgContentColor: rgba($ash, 0.2);
+$bgHeaderColor: rgba($jet, 1);
+
+$textHeaderColor: $darkCyan;
+$textContentColor: $cloud;
+$textAltContentColor: $darkCyan;
+
+@mixin center($horizontal: true, $vertical: true) {
+    position: absolute;
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  
+    } @else if ($horizontal) {
+      left: 50%;
+      transform: translate(-50%, 0);
+  
+    } @else if ($vertical) {
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+}

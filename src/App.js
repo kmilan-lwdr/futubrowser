@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom'
+import GalleryContainer from './Components/GalleryContainer';
+import ViewerContainer from './Components/ViewerContainer';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <a className="AppHeader" href='/'>
+        futuBrowser
+      </a>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/gallery" component={GalleryContainer} />
+          <Route path="/gallery/:page" component={GalleryContainer}/>
+          <Route exact path="/" render={() => (<Redirect to="/gallery" />)} /> 
+          
+          <Route path="/view/:id" component={ViewerContainer}/>
+        
+          <Route path="*" render={() => (<Redirect to="/gallery" />)} />
+        </Switch>
+      </BrowserRouter>
+      
     </div>
   );
 }
-
-export default App;
