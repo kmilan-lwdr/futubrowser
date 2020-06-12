@@ -31,7 +31,6 @@ export default function ViewerContainer(props) {
                 credentials: 'same-origin',
               })
             .then(response => {
-                console.log(response.data);
                 setImage(response.data);
             })
             .catch(function (error) {
