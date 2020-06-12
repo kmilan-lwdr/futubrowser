@@ -20,7 +20,16 @@ export default function ViewerContainer(props) {
 
         const getImageData = async () => {  
             await axios
-            .get(`http://jsonplaceholder.typicode.com/photos/${props.match.params.id}`)
+            .get(`https://jsonplaceholder.typicode.com/photos/${props.match.params.id}`,
+            {
+                mode: 'no-cors',
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                  'Content-Type': 'application/json',
+                },
+                withCredentials: true,
+                credentials: 'same-origin',
+              })
             .then(response => {
                 console.log(response.data);
                 setImage(response.data);

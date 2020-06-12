@@ -33,7 +33,7 @@ export default function GalleryContainer(props) {
             let page = Number(props.match.params.page);
             setPageData({currentPage: page ? page : 1})
             await axios
-            .get(`http://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${LIMIT}`,
+            .get(`https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${LIMIT}`,
             {
                 mode: 'no-cors',
                 headers: {
