@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, Switch, Redirect, BrowserRouter, Link } from 'react-router-dom'
+import { Route, Switch, Redirect, HashRouter, Link } from 'react-router-dom'
 import GalleryContainer from './Components/GalleryContainer';
 import ViewerContainer from './Components/ViewerContainer';
 
 export default function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/futubrowser">
+      <HashRouter basename="/futubrowser">
         <Link to='/' className="AppHeader">
           futuBrowser
         </Link>
@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/view/:id" component={ViewerContainer}/>      
           <Route path="*" render={() => (<Redirect to="/gallery" />)} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
       
     </div>
   );
