@@ -12,8 +12,7 @@ export default function App() {
         </Link>
       
         <Switch>
-          <Route exact path="/gallery" component={GalleryContainer} />
-          <Route path="/gallery/:page" component={GalleryContainer}/>
+          <Route path="/gallery" component={GalleryContainer} />
           <Route exact path="/" render={() => (<Redirect to="/gallery" />)} />           
           <Route path="/view/:id" component={ViewerContainer}/>      
           <Route path="*" render={() => (<Redirect to="/gallery" />)} />

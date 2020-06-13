@@ -3,35 +3,50 @@ import axios from 'axios'
 import InfoOverlay from './InfoOverlay'
 import Image from 'react-graceful-image'
 import BackButton from './BackButton'
+import { Link } from 'react-router-dom'
 
 function ViewerContainer(props) {
+
+    // Set initial states
     const state = {
         loading: true
     }
 
-    const data = {
-        image: undefined
-    }
+    const [imageData, setImageData] = useState({
+        image: undefined,
+        album: undefined
+    });
 
-    const [image, setImage] = useState(data);
     const [loading, setLoadingState] = useState(state);
+
+    // Should move URLs to external config
+    const photoBaseUrl = "https://jsonplaceholder.typicode.com/photos/";
+    const albumBaseUrl = "https://jsonplaceholder.typicode.com/albums/";
 
     useEffect(() => {
 
+        const request = {
+            mode: 'no-cors',
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+            credentials: 'same-origin',
+        }
+
         const getImageData = async () => {  
             await axios
-            .get(`https://jsonplaceholder.typicode.com/photos/${props.match.params.id}`,
-            {
-                mode: 'no-cors',
-                headers: {
-                  'Access-Control-Allow-Origin': '*',
-                  'Content-Type': 'application/json',
-                },
-                withCredentials: true,
-                credentials: 'same-origin',
-              })
-            .then(response => {
-                setImage(response.data);
+            .get(`${photoBaseUrl}${props.match.params.id}`, request)
+            .then(async response => {
+                await axios
+                .get(`${albumBaseUrl}${response.data.albumId}`, request)
+                .then(albumResponse => {
+                    setImageData({
+                        image: response.data,
+                        album: albumResponse.data
+                    })
+                })
             })
             .catch(function (error) {
                 console.log(error);
@@ -51,21 +66,33 @@ function ViewerContainer(props) {
                 loading ? (
                     <InfoOverlay text="Please wait..." iconClass="loadingSpinner"/>
                 ) : (
-                    image.id ?  (
-                    <div className="row">
-                        <div className="column">
-                            <Image className="imageView" 
-                                src={image.url} 
+                    imageData.image.id ?  (
+                    <div>
+                        <div className="row">
+                            <Image className="imageView"
+                                src={imageData.image.url} 
                                 width='600' height='600' 
-                                alt={image.id}
+                                alt={imageData.image.id}
                                 placeholderColor='#393d3a'/>    
                             
                         </div>
-                        <div className="column description">
-                            <div className="descriptionRow"><div className="descriptionKey">Image ID</div><div className="descriptionValue"> {image.id}</div></div>
-                            <div className="descriptionRow"><div className="descriptionKey">Title</div><div className="descriptionValue"> {image.title}</div></div>
-                            <div className="descriptionRow"><div className="descriptionKey">Album ID</div><div className="descriptionValue"> {image.albumId}</div></div>             
-                            <BackButton/>
+                        <div className="row description">
+                            <div className="descriptionRow">
+                                <div className="descriptionKey">Title</div>
+                                <div className="descriptionValue"> 
+                                    {imageData.image.title}
+                                </div>
+                                </div>
+                            <div className="descriptionRow">
+                                <div className="descriptionKey">Album</div>
+                                <Link to={"/gallery?albumId="+imageData.album.id} className="descriptionValue link"> 
+                                    {imageData.album.title}
+                                </Link>
+                            </div>  
+                            <div className="descriptionRow">
+                                <BackButton/>
+                            </div>           
+                            
                         </div>
                     </div>
                     ) : (

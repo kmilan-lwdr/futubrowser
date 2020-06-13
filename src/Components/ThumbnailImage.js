@@ -19,7 +19,7 @@ class ThumbnailImage extends Component {
     render() {
         
         return (
-            <Link to={"/view/"+this.props.id} onMouseEnter={this.mouseOverEvent} onMouseLeave={this.mouseOverEvent}>
+            <Link to={"/view/"+this.props.id}   onMouseEnter={this.mouseOverEvent} onMouseLeave={this.mouseOverEvent}>
                 <Image className="thumbnail" 
                     src={this.props.url} 
                     width='150' height='150' 

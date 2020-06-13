@@ -2,57 +2,79 @@ import React, { useState, useEffect } from 'react'
 import PaginationBar from './PaginationBar'
 import InfoOverlay from './InfoOverlay'
 import ThumbnailImage from './ThumbnailImage'
+import queryString from 'query-string';
 import axios from 'axios'
 
-// Should add option to UI
+// Default fallback limit
 const LIMIT = 40;
 
+// Accepted query params
+const QUERYPARAMS = ["_page", "_limit", "albumId"];
+
+var _ = require('lodash');
+
 export default function GalleryContainer(props) {
-    // Setting initial state
+
+    // Setting initial states
     const loadingState = {
         loading: true,
     }
 
     const [thumbnailData, setThumbnailData] = useState({
         thumbnails: [],
-        totalCount: 1,
-        limit: LIMIT
+        totalCount: 1
     });
 
-    const [pageData, setPageData] =useState( {
-        currentPage: 1
+    const [queryData, setQueryData] = useState( {       
+        _page: 1,
+        _limit: LIMIT,
+        albumId: undefined
+          
     });
 
     const [loading, setLoadingState] = useState(loadingState);   
 
-    // Fetch thumbnails when currentPage changes
+    
+
+    // Fetch thumbnails when search parameters change
     useEffect(() => {
 
+        const request = {
+            mode: 'no-cors',
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+            credentials: 'same-origin',
+        }
+        
         const getThumbnails = async () => {   
             setLoadingState(true);
-            let page = Number(props.match.params.page);
-            setPageData({currentPage: page ? page : 1})
+
+            let queryParams = queryString.parse(props.location.search);
+            queryParams = _.pick(queryParams, QUERYPARAMS);
+
+            // Ensure valid values
+            let page = Number(queryParams._page);
+            let limit = Number(queryParams._limit);
+            queryParams._page = page ? page : 1;
+            queryParams._limit = limit ? limit : LIMIT;
+            queryParams.albumId = queryParams.albumId ?? undefined;
+
+            let queryStr = "?" + queryString.stringify(queryParams, {skipEmptyString: true, skipNull: true});     
+            
+            // Should move URLs to external config
             await axios
-            .get(`https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${LIMIT}`,
-            {
-                mode: 'no-cors',
-                headers: {
-                  'Access-Control-Allow-Origin': '*',
-                  'Content-Type': 'application/json',
-                },
-                withCredentials: true,
-                credentials: 'same-origin',
-              })
+            .get(`https://jsonplaceholder.typicode.com/photos${queryStr !== "?" ? queryStr : ""}`, request)
             .then(response => {
                 setThumbnailData({
                     thumbnails: response.data,
-                    totalCount: response.headers["x-total-count"],
-                    limit: LIMIT
+                    totalCount: response.headers["x-total-count"]
                 });
-                
+                setQueryData(queryParams);
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             })
             .then(function () {
@@ -62,9 +84,8 @@ export default function GalleryContainer(props) {
 
         getThumbnails();
 
-    }, [pageData.currentPage, props.match.params.page]) 
+    }, [props.location.search]) 
 
-    // Return a table with some data from the API.
     return  (
         <div className="container">
             {
@@ -87,9 +108,9 @@ export default function GalleryContainer(props) {
                             </div>
                             
                             <PaginationBar 
-                                currentPage={pageData.currentPage}
-                                totalPages={Math.ceil(thumbnailData.totalCount / LIMIT)}
-                                url='/gallery/'
+                                query={queryData}
+                                totalPages={Math.ceil(thumbnailData.totalCount / queryData._limit)}
+                                path='/gallery'
                             />
                             
                         </div>

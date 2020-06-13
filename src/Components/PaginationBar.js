@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
 const NEIGHBOURS = 2;
@@ -12,16 +13,10 @@ const BREAK = '...';
 class PaginationBar extends Component {
     constructor(props) {
         super(props);
-        this.changePage = this.changePage.bind(this);
         this.generateButtonArray = this.generateButtonArray.bind(this);
-    }
-    
-    changePage (page)  {
-        this.props.changePage({currentPage: page});
-        this.setState(this.state);
-    }
+    }   
 
-    generateButtonArray() {
+    generateButtonArray(currentPage, totalPages) {
 
         const range = (from, to, step = 1) => {
             let i = from;
@@ -38,14 +33,14 @@ class PaginationBar extends Component {
         let buttons = [];
         
         // If current page is not the first, add "start" and "previous" buttons before the numbered buttons
-        if (this.props.currentPage > 1 ){
+        if (currentPage > 1 ){
             buttons.push(START);
             buttons.push(PREVIOUS);
         }
 
         // Visible page numbers
-        let start = Math.max(1, this.props.currentPage - NEIGHBOURS);
-        let end = Math.min(this.props.totalPages, this.props.currentPage + NEIGHBOURS);
+        let start = Math.max(1, currentPage - NEIGHBOURS);
+        let end = Math.min(totalPages, currentPage + NEIGHBOURS);
         let visiblePages = 1 + 2 * NEIGHBOURS;
 
         // Add ... when first page number not visible
@@ -55,25 +50,25 @@ class PaginationBar extends Component {
         }
 
         // Always show max visible page numbers if totalPages exceeds it
-        if(end < visiblePages && this.props.totalPages >= visiblePages)
+        if(end < visiblePages && totalPages >= visiblePages)
         {
-            end = Math.min(visiblePages, this.props.currentPage + 1 + NEIGHBOURS * 2);
+            end = Math.min(visiblePages, currentPage + 1 + NEIGHBOURS * 2);
         }
-        if(start > this.props.totalPages  - NEIGHBOURS * 2)
+        if(start > totalPages  - NEIGHBOURS * 2)
         {
-            start = Math.max(1, this.props.totalPages  - NEIGHBOURS * 2)
+            start = Math.max(1, totalPages  - NEIGHBOURS * 2)
         }
 
         buttons = buttons.concat(range(start, end));
 
         // Add ... when last page number not visible
-        if(end < this.props.totalPages)
+        if(end < totalPages)
         {
             buttons.push(BREAK);
         }
 
         // If current page is not the last, add "end" and "next" -buttons after the numbered buttons
-        if (this.props.currentPage < this.props.totalPages){
+        if (currentPage < totalPages){
             buttons.push(NEXT);
             buttons.push(END);
         }
@@ -83,9 +78,8 @@ class PaginationBar extends Component {
 
 
     render() {
-        if (this.totalPages === 1) return null;
-
-        const pages = this.generateButtonArray();
+        if (this.props.totalPages === 1) return null;
+        const pages = this.generateButtonArray(this.props.query._page, this.props.totalPages);
 
         return (
         
@@ -93,14 +87,15 @@ class PaginationBar extends Component {
             {
                 pages.map((page, index) => {
                     let pageNo;
+                    
                     if (page === START) {
                         pageNo = 1;
                     }
                     else if (page === PREVIOUS) {
-                        pageNo = this.props.currentPage - 1;
+                        pageNo = this.props.query._page - 1;
                     }
                     else if (page === NEXT) {
-                        pageNo = this.props.currentPage + 1;
+                        pageNo = this.props.query._page + 1;
                     }
                     else if (page === END) {
                         pageNo = this.props.totalPages;
@@ -113,11 +108,12 @@ class PaginationBar extends Component {
                     else {
                         pageNo = page;
                     }
+                    
                     return (
                         <Link 
-                            to={this.props.url+pageNo} 
+                            to={this.props.path + "?" + queryString.stringify({...this.props.query, _page: pageNo})} 
                             key={index} 
-                            className={`button ${this.props.currentPage === page ? 'active' : ''}`} >
+                            className={`button ${this.props.query._page === pageNo ? 'active' : ''}`} >
                             {page}
                         </Link>
                     );
@@ -132,9 +128,9 @@ class PaginationBar extends Component {
 }
 
 PaginationBar.propTypes = {
-    currentPage: PropTypes.number,
+    query: PropTypes.object,
     totalPages: PropTypes.number,
-    url: PropTypes.string
+    path: PropTypes.string
 };
 
 export default PaginationBar;
