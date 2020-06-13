@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
-const NEIGHBOURS = 2;
+const NEIGHBOURS = window.innerWidth <= 760 ? 1 : 2;
 const START = '|<';
 const PREVIOUS = '<';
 const NEXT = '>';

@@ -15,6 +15,8 @@
     -webkit-user-select: none;
     user-select: none;
     text-decoration: none;
+    min-width: 3vmin;
+    text-align: center;
 
     &:hover {
         cursor: pointer;

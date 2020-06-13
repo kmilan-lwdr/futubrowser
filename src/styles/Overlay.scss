@@ -17,8 +17,8 @@
         background-position: center;
         background-repeat: no-repeat;
         margin-top: 1vh;
-        width: 4vw;
-        height: 4vh;
+        min-width: 4vw;
+        min-height: 4vh;
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
         pointer-events: none;
@@ -29,8 +29,8 @@
       background-position: center;
       background-repeat: no-repeat;
       margin-top: 1vh;
-      width: 4vw;
-      height: 4vh;
+      min-width: 4vw;
+      min-height: 4vh;
       pointer-events: none;
   }     
       
