@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/futubrowser/precache-manifest.894b26de94796d67149fee3adf664e65.js"
+  "/futubrowser/precache-manifest.a9861d6376e931fa65438c50a1eb44fb.js"
 );
 
 self.addEventListener('message', (event) => {

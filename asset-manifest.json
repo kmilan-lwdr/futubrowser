@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/futubrowser/static/css/main.5b53f433.chunk.css",
-    "main.js": "/futubrowser/static/js/main.9a8ef55a.chunk.js",
-    "main.js.map": "/futubrowser/static/js/main.9a8ef55a.chunk.js.map",
+    "main.css": "/futubrowser/static/css/main.2417b3e0.chunk.css",
+    "main.js": "/futubrowser/static/js/main.77774cb8.chunk.js",
+    "main.js.map": "/futubrowser/static/js/main.77774cb8.chunk.js.map",
     "runtime-main.js": "/futubrowser/static/js/runtime-main.ec2fd7db.js",
     "runtime-main.js.map": "/futubrowser/static/js/runtime-main.ec2fd7db.js.map",
     "static/js/2.f196990e.chunk.js": "/futubrowser/static/js/2.f196990e.chunk.js",
     "static/js/2.f196990e.chunk.js.map": "/futubrowser/static/js/2.f196990e.chunk.js.map",
     "index.html": "/futubrowser/index.html",
-    "precache-manifest.894b26de94796d67149fee3adf664e65.js": "/futubrowser/precache-manifest.894b26de94796d67149fee3adf664e65.js",
+    "precache-manifest.a9861d6376e931fa65438c50a1eb44fb.js": "/futubrowser/precache-manifest.a9861d6376e931fa65438c50a1eb44fb.js",
     "service-worker.js": "/futubrowser/service-worker.js",
-    "static/css/main.5b53f433.chunk.css.map": "/futubrowser/static/css/main.5b53f433.chunk.css.map",
+    "static/css/main.2417b3e0.chunk.css.map": "/futubrowser/static/css/main.2417b3e0.chunk.css.map",
     "static/js/2.f196990e.chunk.js.LICENSE.txt": "/futubrowser/static/js/2.f196990e.chunk.js.LICENSE.txt",
     "static/media/Styles.scss": "/futubrowser/static/media/loader.fda1130c.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ec2fd7db.js",
     "static/js/2.f196990e.chunk.js",
-    "static/css/main.5b53f433.chunk.css",
-    "static/js/main.9a8ef55a.chunk.js"
+    "static/css/main.2417b3e0.chunk.css",
+    "static/js/main.77774cb8.chunk.js"
   ]
 }
